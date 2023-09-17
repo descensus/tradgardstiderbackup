@@ -15,7 +15,7 @@ while IFS= read -r line; do
     YEAR=$(echo $EPISODE| grep -oE 'Produktionsår</dt><dd[^>]*>[0-9]+</dd>' | grep -oE '[0-9]+' | awk '$0 >= 2016 && $0 <= 2023')
     echo ">> Extracting metadata: title"
     TITLE=$(echo $EPISODE|grep -oE '<p[^>]*>[^<]* • [0-9]+ min</p>'| sed 's/<[^>]*>//g; s/ • .*//') 
-    echo ">> Extracting metadata: year"
+    echo ">> Extracting metadata: part"
     PART=$(echo $EPISODE|grep -oE 'Del [0-9] av [0-9]\.( Vårsäsongen\.| Höstsäsongen\.)?'| tr -d '.'| head -1)
     
 
